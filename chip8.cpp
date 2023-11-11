@@ -3,15 +3,10 @@
 #include <cstring>
 #include <fstream>
 #include <iostream>
-#include <iomanip>
 #include <vector>
 #define START 0x200
 #define   END 0xFFF
-typedef unsigned short INS;
 using namespace std;
-
-//todo: read file into buffer, and then copy it into mem
-//todo: start with display
 
 // sizeof(char) = 1 byte, unsigned char has range [0, 2^8-1 = 255]
 unsigned char mem[4096];  // 4KB (writable) RAM
@@ -30,7 +25,7 @@ void readROM(char filepath[]) {
     for(int i=0;i<buffer.size();i++) mem[START+i] = buffer[i];
      
     end_of_ROM = START+buffer.size();
-
+    
     //for(int i=START;i<end_of_ROM;i++) {
     //    printf("%02x", mem[i]);
     //    if(i%2 ==1) printf(" ");

@@ -1,8 +1,11 @@
-chip8: chip8.o
-	g++ chip8.o -o chip8 -lSDL2
+chip8: main.o operations.o
+	g++ main.o operations.o -o chip8 -lSDL2
 
-chip8.o: chip8.cpp
-	g++ -c chip8.cpp
+main.o: main.cpp
+	g++ -c main.cpp 
+
+operations.o: operations.cpp
+	g++ -c operations.cpp
 
 clean:
 	rm *.o 
